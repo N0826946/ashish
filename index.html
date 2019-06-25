@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>single page layout using html and all</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+
+
+	<style type="text/css">
+
+	*,
+	*::before,
+	*::after{
+
+			box-sizing: border-box;
+
+	}
+
+	*:focus{
+
+		outline: none;
+
+	}	
+
+	body{
+
+		padding: 0;
+		margin: 0;
+		background: #000;
+		color: white;
+		font-family: "Oxygen" , san-serif;
+
+	}
+
+	a{
+		text-decoration: none;
+
+	}
+
+	img{
+		width: 100%;
+
+	}
+
+	.home img{
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+		-webkit-filter: grayscale(100%);
+		contrast(100%);
+		filter: grayscale(100%) contrast(150%);
+		brightness(60%);
+
+	}
+
+
+
+	.folio img{
+		filter: grayscale(100%);	
+
+	}
+
+	aside{
+		position: fixed;
+		background: #222;
+		top: 0px;
+		left: 0px;
+		width: 120px;
+		height: 63%;
+		overflow: none;
+		z-index: 1;
+		text-align: center;
+		padding: 0;
+
+	}
+
+	aside img{
+		filter: grayscale(100%) contrast(100%)
+		brightness(100%);
+		border-radius: 1px;
+			margin-bottom: -3px;
+
+	}
+
+
+	.material-icon.md-36{
+		font-size: 36px;	
+
+	}
+
+	aside a{
+		display: block;
+		padding: 30px 0;
+		color: white;
+		transition: all 0.35s;
+		text-transform: uppercase;
+		font-size: 0.75em;
+		letter-spacing: 2px;
+
+
+	}
+
+
+	aside p{
+
+		margin: 0;
+		padding: 0;
+
+
+	}
+
+	aside a:hover{
+		background: #e60000;
+
+
+	}
+
+	aside nav a:nth-child(2){
+		background: #000;
+	}
+
+	aside nav a:nth-child(2):hover{
+		background: #b2b2b2;
+		color: #222;
+
+	}
+
+	main{
+		max-width: 1200px;
+		background: #000;
+		margin-left: 20%;
+		padding: 12px 50px 12px 50px;
+
+	}
+
+	header{
+		text-align: center;
+		letter-spacing: 2px;
+
+
+	}
+
+	header h1{
+		font-weight: bold;
+		font-size: lem;
+		letter-spacing: 4px;
+
+	}
+
+	header h5{
+		font-weight: 300;
+		font-size: 1em;
+		letter-spacing: 4px;
+		color: #ff0000;
+		
+	}
+	.about,
+	.folio,
+	.contact{
+		line-height: 1.5em;
+		letter-spacing: 2px;
+		font-weight: 300px;
+
+	}
+
+	.about h2,
+	.folio h2,
+	.contact h2{
+		font-weight: 300;
+		text-transform: uppercase;
+		text-decoration: line-through;
+		padding-bottom: 10px;
+		margin: 100px 0 0 0;
+		letter-spacing: 3px;
+
+	}
+
+	.about p{
+		color: #b2b2b2;
+
+	}
+
+	.about span{
+		font-weight: 600;
+		color: red;
+	}
+
+	.about h3{
+		font-weight: 300;
+		margin: 50px 0;
+
+	}
+
+	.container{
+		width: 100%;
+		background-color: #b2b2b2;
+
+	}
+
+	.skills{
+		text-align: right;
+		padding-right: 20px;
+		line-height: 30px;
+		color: white;
+		background-color: #424242;
+
+	}
+
+	.Research{
+		width: 85%;
+
+	}
+
+	.Analysis{
+		width: 80%;
+
+	}
+
+	.Editing{
+		width: 50%;
+
+	}
+
+	.html{
+		width: 40%;
+
+	}
+
+
+	.SM {
+		width: 52%;
+
+	}
+
+	.folio h3{
+		color: red;
+		font-weight: 300;
+		letter-spacing: 2px;
+
+	}
+
+	.folio p{
+		font-size: 0.875em;
+	}
+
+	.row-halves{
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		justify-content: space-between;
+		margin: 20px 0px;
+		-webkit-flex-pack: justify;
+
+	}
+
+	.row-halves .col{
+		width: 30%;
+	}
+
+	.col{
+		border: 1px solid #222;
+		background: #222;
+		color: #b2b2b2;
+		padding: 10px;
+
+	}
+
+
+	label{
+		color: #b2b2b2;
+
+	}
+
+	form input[type="text"],
+	select,
+	textarea{
+		width: 100%;
+		padding: 12px;
+		border: none;
+		border: 1px solid #222;
+		background: transparent;
+		margin-top: 6px;
+		margin-bottom: 16px;
+		resize: vertical;
+		color: #b2b2b2;
+
+	}
+
+	form input[type="text"]:focus,
+	textarea:focus{
+		outline: none;
+		border: 1px solid #ff0000;
+
+	}
+
+	input[type="submit"]{
+		background-color: transparent;
+		color: #b2b2b2;
+		text-transform: uppercase;
+		padding: 12px 20px;
+		border: 1px solid #222;
+		cursor: pointer;
+		transition: all 0.35s;
+
+
+	}
+
+	input[type="submit"]{
+		background-color: transparent;
+		color: #b2b2b2;
+		text-transform: uppercase;
+		padding: 12px 20px;
+		border: 1px solid #222;
+		cursor: pointer;
+		transition: all 0.35s;
+
+	}
+
+	input[type="submit"]:hover{
+		background-color: #b2b2b2;
+		color: #222;
+
+	}
+
+	.contact .container{
+		margin-top: 20px;
+		margin-bottom: 100px;
+		background: transparent;
+		padding: 20px 0;
+	}
+
+	.footer{
+		border-top: 1px solid #222;
+
+	}
+
+	.top-bar {
+		padding: 20px 0;
+		text-align: center;
+
+	}
+
+	.top-bar a{
+		margin: 10px;
+		font-size: 2em;
+		color: #b2b2b2;
+		transition: all 0.35s;
+		display: inline-block;
+
+	}
+
+	.top-bar a:hover{
+		transform: scale(1.1);
+		color: #ff0000;
+
+	}
+
+	.bottom-bar{
+		background: #000;
+		font-size: 0.75em;
+		text-align: center;
+
+	}
+
+	@media (max-width: 768px){
+		.row-halves{
+			display: block;
+		} 
+		.row-halves .col{
+			width: 100;
+			margin: 0 0 10px 0;
+		}
+	}
+
+		@media (max-width: 601px){
+			aside{
+			display: none;
+		} 
+		main{
+			width: 100%;
+			margin: 0 auto;
+			padding: 12px 25px; 
+		}
+
+		header{
+			margin-top: 80px;
+
+		}
+
+		header h1{
+			font-size: 3em;
+			letter-spacing: 1.4em;
+
+		}
+
+		header h5{
+			font-size: 1em;
+			letter-spacing: 2px;
+		}
+
+		.mobile-nav{
+			position: fixed;
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			background: rgba(0,0,0,0.8);
+			z-index: 1;
+
+		}
+
+		.mobile-nav a{
+			width: 100%;
+			color: #b2b2b2;
+			text-transform: uppercase;
+			font-size: 0.875em;
+			letter-spacing: 2px;
+			text-align: center;
+			padding: 10px 10px;
+			transition: all 0.35s;
+
+		}
+
+		.mobile-nav a:hover{
+			background: #b2b2b2;
+			color: #222;
+
+		}
+	}
+
+	@media (min-width:600px){
+		.mobile-nav{
+			display: none;
+		}
+	}
+
+
+	.about {
+		max-width: 800px;
+		margin: auto;
+		background: black;
+		text-align: center;
+		padding-top: 10px;
+
+	}
+
+	.folio {
+		max-width: 1000px;
+		margin: auto;		
+		height: auto;
+		background: black;
+		text-align: center;
+		padding-top: 10px;
+
+	}
+
+
+	.contact {
+		max-width: 1200px;
+		margin: auto;		
+		height: auto;
+		background: black;
+		text-align: center;
+		padding-top: 10px;
+
+	}
+
+	.fa {
+  		padding: 20px;
+  		font-size: 30px;
+  		width: 50px;
+  		text-align: center;
+  		text-decoration: none;
+  		margin: 5px 2px;
+	}
+
+	.fa:hover {
+	    opacity: 0.7;
+	}
+
+	.fa-facebook {
+ 		 background: black;
+ 	 	color: white;
+	}
+
+
+	.fa-twitter {
+  		background: black;
+  		color: white;
+	}
+
+
+	.fa-linkedin {
+  		background: black;
+  		color: white;
+	}
+
+
+   .fa-instagram {
+       	background: black;
+  		color: white;
+	}
+
+	.contact-info .fa
+	{
+		margin: 10px;
+		color: #ff0000;
+		font-weight: bold;
+
+	}
+
+	a:hover {
+		color: #ff0000;
+	}
+
+	#outlookLink {
+		text-decoration: none; color: #ffffff !important
+	}
+
+
+
+
+
+	</style>
+
+</head>
+<body>
+
+	<aside>
+		<nav>
+			<img src="C:\Users\Ashish\Desktop\firstwebpage\images\Ashish2.1.jpg">
+			<a href="#home"><i class="material-icons md-36">home</i>
+			<p>Home</p>	
+			</a>
+
+			<a href="#about"><i class="material-icons md-36">person</i>
+			<p>About</p>	
+			</a>
+
+			<a href="#folio"><i class="material-icons md-36">image</i>
+			<p>Folio</p>	
+			</a>
+
+			<a href="#contact"><i class="material-icons md-36">mail</i>
+			<p>Contact</p>	
+			</a>
+
+		</nav>
+		
+	</aside>
+
+			<nav class="mobile-nav">
+				
+				<a href="#home">Home</a>
+				<a href="#about">About</a>
+				<a href="#folio">Folio</a>
+				<a href="#contact">Contact</a>
+
+		</nav>
+
+			<main>
+				<header class="home" id="home"><br><br>
+					<h1>I'm Ashish Kumar</h1>
+					 <h5>Marketer</h5>
+					 <img src="C:\Users\Ashish\Desktop\firstwebpage\images\Ashish2.jpg" alt="">
+
+				</header>
+				
+			</main>
+
+		<div>
+
+			<section class="about" id="about">
+
+				<h2>About me</h2>
+				
+				<p>
+					<span>Hello, I'm Ashish!</span> A marketer who involves in integrated marketing, communication, customer engagement strategist and brand awareness.
+				</p>
+				<p>
+					Currently, I am working as a waiter in
+					<a href="https://www.masalajunction.co.uk/
+					" target="_self" rel="follow" data-wpel-link="internal">MASALA junction</a>
+					involved in numerous activities like handling orders, preparing bills for customers, promoting new dish and succesfully convincing customers to try new promoted products.<br><br>I am also doing marketing research in
+					<a href="https://www.facebook.com/spicesnottingham/" target="_self" rel="follow" data-wpel-link="internal">SPICES - Health Heart Research</a>
+					through strategic analysis of quantitative survey of locals in Nottingham to get better insight of Heart problems and providing offline service for better precautions to be taken for their healthy life.<br><br>My roles involved organisational development strategically, employer brand awareness and building organisational capability for better business performance. This developed my in-depth knowledge on team management and leading a complex projects.<br><br>In digital platform, I have gained a good knowledge of Digital marketing, employer branding and customer acquisition, social media marketing, video editing, personal branding, HTML/CSS, bootstrap, github, and editing pamphlets as well. 
+				</p>
+				
+				<h3>My skills</h3>
+				<p>Marketing Research</p>
+				<div class="container">
+					<div class="skills Research">85%</div>
+				</div>
+
+
+				<p>Competitor Analysis</p>
+				<div class="container">
+					<div class="skills Analysis">80%</div>
+				</div>
+
+				<p>Video Editing</p>
+				<div class="container">
+					<div class="skills Editing">50%</div>
+				</div>
+
+
+				<p>Html / Css</p>
+				<div class="container">
+					<div class="skills html">40%</div>
+				</div>
+
+
+				<p>Social Media Marketing</p>
+				<div class="container">
+					<div class="skills SM Marketing">52%</div>
+				</div>
+
+			</section>
+
+		</div>
+
+		<div>
+
+			<section class="folio" id="folio">
+				
+				<h2>Folio</h2>
+
+				<div class="row-halves">
+					<div class="col">
+						<img src="C:\Users\Ashish\Desktop\firstwebpage\images\market research.jpg" alt="">		
+
+						<h3>Market Research</h3>
+						<p>
+							A market research analyst conducting, analysing and interpreting customers, competitors and market intelligence across the marketing spectrum for customer segmentations.<br><br> Defining target markets and opportunities within them through research.
+						</p>
+					</div>
+
+					<div class="col">
+						<img src="C:\Users\Ashish\Desktop\firstwebpage\images\ashish6.jpg" alt="">
+						<h3>Social Media Marketing</h3>
+						<p>
+							I was involved in growing up a business with my members in Thinkubator Challenge conducted by 
+							<a href="https://www4.ntu.ac.uk/nbs/" target="_self" rel="follow" data-wpel-link="internal">Nottingham Business School, Nottingham Trent University.</a>		We were supporting an organisation who specialises in mental health treatment with chronic mental illness and addictions.<br> The organisation digital platform was improved based on the right demographic and target market. Posting the right content in social media with consistency and improvising the profile professionally for online growth.
+
+						</p>
+					</div>
+
+					<div class="col">
+						<img src="C:\Users\Ashish\Desktop\firstwebpage\images\ashish7.jpg" alt="">
+						<h3>Certificate of completion for HTML/CSS</h3>
+						<p>
+							Completed the course on HTML/CSS and developed a good knowledge for handling Web Development.
+						</p>
+					</div>
+
+
+
+					<div class="col">
+						<iframe src="https://www.youtube.com/embed/ICyf78QgAGs" width="250" height="250" frameborder="0"></iframe>
+
+
+						<h3>Project Manager of AAINA- The Theatre Society</h3>
+						<p>
+							As a project manager after handling the team in risk and task management, I was involved with a variety of situation like analysing the right content for disseminating social message for social cause, editing pamphlets, boards for plays, handling social media.<br> The street play made the young minds realise their social responsibilities towards the society and encouraging women's education through plays. 
+							
+						</p>
+					</div>
+
+				</div>
+
+			</section>
+
+		</div>
+
+		<div>
+
+			<section class="contact" id="contact">
+
+				<h2>Contact</h2>
+
+
+					<div class="col-md-6 contact-info">
+						<div class="follow"><b>Address:</b><i class="fa fa-map-marker"></i>The Maltings, Whitemoor Road, Basford, Nottingham, NG1 0HN, United Kingdom</div>
+
+						<div class="follow"><b>Phone:</b><i class="fa fa-phone"></i>+447721568042</div>
+
+						<div class="follow"><b>Email:</b><i class="fa fa-envelope-o"></i><a href="mailto:ashish.kumar2018@my.ntu.ac.uk" id="ashish.kumar2018@my.ntu.ac.uk" name="Anchor" style="text-decoration: none; color: #ffffff !important;">ashish.kumar2018@my.ntu.ac.uk</a>
+
+
+
+
+					</div>
+					
+			</section>
+
+		</div>
+
+			<footer>
+				<section class="top-bar">
+					<a href="https://www.facebook.com/profile.php?id=100028840356403" class="fa fa-facebook"></a>
+					<a href="https://twitter.com/AshishK22816905" class="fa fa-twitter"></a>
+					<a href="https://www.linkedin.com/in/ashish-kumar-7aa2b5162/" class="fa fa-linkedin"></a>
+					<a href="https://www.instagram.com/ashishkmr6011/" class="fa fa-instagram"></a>
+
+
+
+				</section>
+
+					<section class="bottom-bar">
+						<p>&copy 2019 | All rights reserved</p>
+						
+					</section>
+
+					</section>
+
+
+
+
+			</footer>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
